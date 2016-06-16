@@ -11,6 +11,7 @@
 #include <QVideoFrame>
 #include <QImage>
 #include <QPixmap>
+#include <QVideoSurfaceFormat>
 
 namespace Ui {
 class Player;
@@ -35,12 +36,21 @@ private slots:
 
     void on_actionScreenshot_triggered();
 //    void capture_video(const QVideoFrame &frame);
+    void on_actionRewind_triggered();
+
+    void on_actionForward_triggered();
+
+    void on_spinBox_valueChanged(int arg1);
+
 private:
+    double d_rate;
     Ui::Player *ui;
     QMediaPlayer *play;
     QVideoWidget *vw;
+    QVideoSurfaceFormat *vsf;
     QSlider *slider;
     QVideoFrame *video_frame;
+    QString mssg;
 };
 
 #endif // PLAYER_H

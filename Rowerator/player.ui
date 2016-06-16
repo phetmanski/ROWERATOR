@@ -13,7 +13,18 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QSpinBox" name="spinBox">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>200</y>
+      <width>42</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -47,6 +58,9 @@
    <addaction name="actionPause"/>
    <addaction name="actionStop"/>
    <addaction name="actionScreenshot"/>
+   <addaction name="actionRewind"/>
+   <addaction name="actionForward"/>
+   <addaction name="separator"/>
   </widget>
   <action name="actionOpen">
    <property name="icon">
@@ -103,6 +117,24 @@
    </property>
    <property name="text">
     <string>Screenshot</string>
+   </property>
+  </action>
+  <action name="actionRewind">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/icons/prev 2.png</normaloff>:/images/icons/prev 2.png</iconset>
+   </property>
+   <property name="text">
+    <string>rewind</string>
+   </property>
+  </action>
+  <action name="actionForward">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/icons/next 2.png</normaloff>:/images/icons/next 2.png</iconset>
+   </property>
+   <property name="text">
+    <string>forward</string>
    </property>
   </action>
  </widget>
