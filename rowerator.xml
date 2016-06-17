@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="css.css"?>
+<Rowerator>
+  <Punkt>
+		<Temat><p>Tutaj są podane Punkty Rowerzysty w orientacji <span>Y:X</span></p></Temat>
+			<Td>Szyja - <span>60:70 </span></Td>
+			<Td>Łokieć - <span>50:50 </span></Td>
+			<Td>Ręce - <span>40:30</span> </Td>
+			<Td>Biodra - <span>40:70 </span></Td>
+			<Td>Kolano - <span>30:50</span></Td>
+			<Td>Zakończenie nogi - <span>20:60</span></Td>
+			<Td>Pięta - <span>18:60</span></Td>
+			<Td>Palce - <span>15:55</span></Td>
+		
+  </Punkt>
+  
+  <Kat>
+		<Temat><p>Tutaj są podane Kąty odpowiadające punktom powyżej w ujęciu  <span>procentowym</span></p></Temat>
+			<Td>Łokciowy - <span>5%</span></Td>
+			<Td>Pachowy - <span>30%</span></Td>
+			<Td>Biodrowy - <span>40%</span></Td>
+			<Td>Kolanowy - <span>30%</span></Td>
+			<Td>Stopowy - <span>15%</span></Td>
+  </Kat>
+
+</Rowerator>
+
