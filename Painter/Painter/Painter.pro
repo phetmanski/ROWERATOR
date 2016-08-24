@@ -14,10 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         painter.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mypainter.cpp \
+    cyclist.cpp
 
 HEADERS  += painter.h \
-    mainwindow.h
+    mainwindow.h \
+    mypainter.h \
+    cyclist.h
 
 FORMS    += painter.ui \
     mainwindow.ui
