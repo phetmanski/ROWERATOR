@@ -64,16 +64,6 @@
      </property>
     </item>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>640</width>
-      <height>360</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
@@ -110,6 +100,19 @@
      <string>cm</string>
     </property>
    </widget>
+   <widget class="QLabel" name="imgView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>640</width>
+      <height>360</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -120,13 +123,13 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuTrololo">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOtw_rz"/>
+    <addaction name="fileOpen"/>
    </widget>
-   <addaction name="menuTrololo"/>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -138,6 +141,11 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionOtw_rz">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="fileOpen">
    <property name="text">
     <string>Open</string>
    </property>

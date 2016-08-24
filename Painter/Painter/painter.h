@@ -2,6 +2,10 @@
 #define PAINTER_H
 
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QString>
+#include <QFile>
+#include <QTextStream>
 
 namespace Ui {
 class Painter;
@@ -17,6 +21,9 @@ public:
 
 private:
     Ui::Painter *ui;
+
+private slots:
+    void on_fileOpen_triggered();
 };
 
 #endif // PAINTER_H
