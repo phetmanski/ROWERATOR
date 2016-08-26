@@ -6,6 +6,13 @@ Painter::Painter(QWidget *parent) :
     ui(new Ui::Painter)
 {
     ui->setupUi(this);
+
+    connect(this,SIGNAL(sendMeasureType(int)),ui->display,SLOT(reciveMeasType(int)));
+    connect(this,SIGNAL(sendDebug_for()),ui->display,SLOT(reciveDebug_for()));
+    connect(this,SIGNAL(sendScale(QString)),ui->display,SLOT(reciveScale(QString)));
+    connect(ui->display,SIGNAL(sendDebugMsg(float,float)),this,SLOT(show_debug(float,float)));
+
+    connect(this,SIGNAL(sendMeasureType(int)),ui->display,SLOT(reciveMeasType(int)));
 }
 
 Painter::~Painter()
@@ -24,8 +31,24 @@ void Painter::on_fileOpen_triggered()
         if (valid) {
             image = image.scaledToHeight(ui->imgView->height(), Qt::SmoothTransformation);
             ui->imgView->setPixmap(QPixmap::fromImage(image));
+            ui->display->isImageLoaded_set(true);
         } else {
             //error handling
         }
     }
+}
+void Painter::on_button_scale_clicked()
+{
+    //emit this->sendScale(ui->scaleLable->text());
+    //ui->debug->setText("scale: "+ui->scaleLable->text());
+}
+
+void Painter::show_debug(float a, float b)
+{
+    ui->debug->setText("val: "+QString::number(this->measVal));
+}
+
+void Painter::on_comboBox_currentIndexChanged(int index)
+{
+    emit this->sendMeasureType(index);
 }

@@ -2,15 +2,21 @@
 
 Cyclist::Cyclist()
 {
-    for(int i=0;i<7;++i){
-        this->len[i]=-1;
-        if(i<4)
-            this->dir[i]=-1;
-    }
 
 }
 
 Cyclist::~Cyclist()
 {
 
+}
+
+void Cyclist::len_set(QPoint a, QPoint b, int n)
+{
+    this->len[n][0] = a;
+    this->len[n][1] = b;
+}
+
+void Cyclist::dir_set(float a, int n)
+{
+    this->dir[n] = a;
 }

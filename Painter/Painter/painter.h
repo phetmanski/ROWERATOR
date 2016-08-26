@@ -19,11 +19,27 @@ public:
     explicit Painter(QWidget *parent = 0);
     ~Painter();
 
-private:
-    Ui::Painter *ui;
+signals:
+    void sendMeasureType(int);
+    void sendDebug_for();
+    void sendScale(QString);
+
+public slots:
+    void show_debug(float,float);
 
 private slots:
     void on_fileOpen_triggered();
+
+    void on_button_scale_clicked();
+
+    void on_comboBox_currentIndexChanged(int index);
+
+private:
+    Ui::Painter *ui;
+    QString fileName;
+    QString measType;
+    QString measName;
+    float measVal;
 };
 
 #endif // PAINTER_H
