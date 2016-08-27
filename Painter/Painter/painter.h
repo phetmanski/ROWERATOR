@@ -21,11 +21,14 @@ public:
 
 signals:
     void sendMeasureType(int);
-    void sendDebug_for();
+    //void sendDebug_for();
     void sendScale(QString);
+    void sendCalcTriger();
+    void sendResetSig();
+    void sendSaveTriger();
 
-public slots:
-    void show_debug(float,float);
+//public slots:
+    //void show_debug(float,float);
 
 private slots:
     void on_fileOpen_triggered();
@@ -33,6 +36,10 @@ private slots:
     void on_button_scale_clicked();
 
     void on_comboBox_currentIndexChanged(int index);
+
+    void on_calcButton_clicked();
+
+    void on_genericButt_clicked();
 
 private:
     Ui::Painter *ui;
