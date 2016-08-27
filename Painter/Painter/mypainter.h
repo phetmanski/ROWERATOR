@@ -1,7 +1,7 @@
 #ifndef MYPAINTER_H
 #define MYPAINTER_H
 
-#include "cyclist.h"
+//#include "cyclist.h"
 #include <QObject>
 #include <QWidget>
 #include <QLabel>
@@ -21,12 +21,15 @@ public:
     float length_get();
     float angle_get();
 
+    void len_set(QPoint a, QPoint b, int n);
+
 protected:
     void mouseMoveEvent(QMouseEvent *mouse_event);
     void mousePressEvent(QMouseEvent *mouse_event);
 
     void paintEvent(QPaintEvent *e);
 
+    void paintScaleEvent(QPaintEvent *e);
     void paintBodyEvent(QPaintEvent *e);
     void paintUperLegEvent(QPaintEvent *e);
     void paintLowerLegEvent(QPaintEvent *e);
@@ -42,9 +45,10 @@ private:
     bool isImageLoaded;
     bool drawFlag[2];
     QPoint a,b;
+    QPoint len[8][2];
     int measType;
 
-    Cyclist *myCyclist;
+    //Cyclist *myCyclist;
 
     void measure_angle();
     void measure_length();

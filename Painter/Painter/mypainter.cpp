@@ -36,6 +36,12 @@ float myPainter::angle_get()
     return this->angle;
 }
 
+void myPainter::len_set(QPoint a, QPoint b, int n)
+{
+    this->len[n][0] = a;
+    this->len[n][1] = b;
+}
+
 void myPainter::mouseMoveEvent(QMouseEvent *mouse_event)
 {
     QPoint mouse_pos = mouse_event->pos();
@@ -57,12 +63,12 @@ void myPainter::mousePressEvent(QMouseEvent *mouse_event)
         if (!this->drawFlag[0]){
             this->a.setX(mouse_pos.x());
             this->a.setY(mouse_pos.y());
-            this->canDraw_set(false);
+            //this->canDraw_set(false);
             this->drawFlag[0] = true;
         } else if (this->drawFlag[0] && !this->drawFlag[1]) {
             this->b.setX(mouse_pos.x());
             this->b.setY(mouse_pos.y());
-            //this->myCyclist->len_set(this->a,this->b,this->measType);
+            this->len_set(this->a,this->b,this->measType);
             for (int i=0; i<2; ++i) {
                 this->drawFlag[i] = false;
             }
@@ -71,40 +77,104 @@ void myPainter::mousePressEvent(QMouseEvent *mouse_event)
         this->update();
     }
 
-    this->measure_length();
-    this->measure_angle();
+    //this->measure_length();
+    //this->measure_angle();
 }
 
 void myPainter::paintEvent(QPaintEvent *e)
 {
+    this->paintScaleEvent(e);
+    this->paintBodyEvent(e);
+    this->paintUperLegEvent(e);
+    this->paintLowerLegEvent(e);
+    this->paintUperArmEvent(e);
+    this->paintLowerArmEvent(e);
+    this->paintCustom1Event(e);
+    this->paintCustom2Event(e);
+}
+
+void myPainter::paintScaleEvent(QPaintEvent *e)
+{
     if (this->isImageLoaded && this->canDraw) {
         this->paintingActive();
         QPainter painter(this);
-        QPen linepen(Qt::black);
-        switch(this->measType) {
-            case 0:
-            linepen.setColor(Qt::red);
-            break;
-            case 1:
-            linepen.setColor(Qt::blue);
-            break;
-            case 2:
-            linepen.setColor(Qt::green);
-            break;
-            case 3:
-            linepen.setColor(Qt::black);
-            break;
-            case 4:
-            linepen.setColor(Qt::yellow);
-            break;
-            default:
-            linepen.setColor(Qt::cyan);
-            break;
-        }
-
+        QPen linepen(Qt::red);
         linepen.setWidth(3);
         painter.setPen(linepen);
-        painter.drawLine(this->a,this->b);
+        painter.drawLine(this->len[0][0],this->len[0][1]);
+    }
+    this->update();
+}
+void myPainter::paintBodyEvent(QPaintEvent *e)
+{
+    if (this->isImageLoaded && this->canDraw) {
+        this->paintingActive();
+        QPainter painter(this);
+        QPen linepen(Qt::blue);
+        linepen.setWidth(3);
+        painter.setPen(linepen);
+        painter.drawLine(this->len[1][0],this->len[1][1]);
+    }
+}
+void myPainter::paintUperLegEvent(QPaintEvent *e)
+{
+    if (this->isImageLoaded && this->canDraw) {
+        this->paintingActive();
+        QPainter painter(this);
+        QPen linepen(Qt::green);
+        linepen.setWidth(3);
+        painter.setPen(linepen);
+        painter.drawLine(this->len[2][0],this->len[2][1]);
+    }
+}
+void myPainter::paintLowerLegEvent(QPaintEvent *e)
+{    if (this->isImageLoaded && this->canDraw) {
+        this->paintingActive();
+        QPainter painter(this);
+        QPen linepen(Qt::green);
+        linepen.setWidth(3);
+        painter.setPen(linepen);
+        painter.drawLine(this->len[3][0],this->len[3][1]);
+    }
+}
+void myPainter::paintUperArmEvent(QPaintEvent *e)
+{    if (this->isImageLoaded && this->canDraw) {
+        this->paintingActive();
+        QPainter painter(this);
+        QPen linepen(Qt::yellow);
+        linepen.setWidth(3);
+        painter.setPen(linepen);
+        painter.drawLine(this->len[4][0],this->len[4][1]);
+    }
+}
+void myPainter::paintLowerArmEvent(QPaintEvent *e)
+{    if (this->isImageLoaded && this->canDraw) {
+        this->paintingActive();
+        QPainter painter(this);
+        QPen linepen(Qt::yellow);
+        linepen.setWidth(3);
+        painter.setPen(linepen);
+        painter.drawLine(this->len[5][0],this->len[5][1]);
+    }
+}
+void myPainter::paintCustom1Event(QPaintEvent *e)
+{    if (this->isImageLoaded && this->canDraw) {
+        this->paintingActive();
+        QPainter painter(this);
+        QPen linepen(Qt::black);
+        linepen.setWidth(3);
+        painter.setPen(linepen);
+        painter.drawLine(this->len[6][0],this->len[6][1]);
+    }
+}
+void myPainter::paintCustom2Event(QPaintEvent *e)
+{    if (this->isImageLoaded && this->canDraw) {
+        this->paintingActive();
+        QPainter painter(this);
+        QPen linepen(Qt::black);
+        linepen.setWidth(3);
+        painter.setPen(linepen);
+        painter.drawLine(this->len[7][0],this->len[7][1]);
     }
 }
 
@@ -143,6 +213,7 @@ void myPainter::reset_view()
 void myPainter::reciveMeasType(int index)
 {
     this->measType = index;
+    this->update();
 }
 
 void myPainter::reciveDebug_for()
