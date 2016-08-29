@@ -113,7 +113,7 @@
   <action name="actionScreenshot">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/images/icons/prev 2.png</normaloff>:/images/icons/prev 2.png</iconset>
+     <normaloff>:/images/icons/aparat.jpg</normaloff>:/images/icons/aparat.jpg</iconset>
    </property>
    <property name="text">
     <string>Screenshot</string>

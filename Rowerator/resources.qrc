@@ -6,5 +6,6 @@
         <file>icons/play.png</file>
         <file>icons/prev 2.png</file>
         <file>icons/stop.png</file>
+        <file>icons/aparat.jpg</file>
     </qresource>
 </RCC>
