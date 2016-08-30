@@ -260,6 +260,8 @@ void myPainter::reset_view()
 
 void myPainter::reciveSaveTriger()
 {
+    this->xmlGen.set(this->length,this->angle);
+
     QFile fileName("test.txt");
     fileName.open(QIODevice::WriteOnly|QIODevice::Text);
     QTextStream out(&fileName);
@@ -273,6 +275,7 @@ void myPainter::reciveSaveTriger()
         out<<"\t"+QString::number(this->angle[i])<<endl;
     }
     out<<endl;
+    out<<this->xmlGen.generate()<<endl;
     fileName.close();
 }
 

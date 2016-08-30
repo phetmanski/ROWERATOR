@@ -7,6 +7,7 @@
 #include <QtGui>
 #include <QtCore>
 #include <qmath.h>
+#include "xmlgenerator.h"
 
 class myPainter : public QLabel
 {
@@ -46,6 +47,7 @@ private:
     float length[8];
     qreal angle[4];
     int measType;
+    XmlGenerator xmlGen;
 
     QPoint avergePointGen(QPoint a, QPoint b);
     qreal measure_angle(QPoint a, QPoint b, QPoint c);

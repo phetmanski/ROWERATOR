@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     mypainter.cpp \
-    painter.cpp
+    painter.cpp \
+    xmlgenerator.cpp
 
 HEADERS  += mainwindow.h \
     mypainter.h \
-    painter.h
+    painter.h \
+    xmlgenerator.h
 
 FORMS    += mainwindow.ui \
     painter.ui
