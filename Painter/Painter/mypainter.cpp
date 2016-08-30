@@ -4,7 +4,7 @@ myPainter::myPainter(QWidget *parent) : QLabel(parent)
 {
     this->scale = 0;
     //this->isScaled = false;
-    //this->measType = 0;
+    this->measType = 0;
     this->canDraw = false;
 
     this->drawFlag[0] = false;
@@ -34,7 +34,6 @@ void myPainter::len_set(QPoint a, QPoint b, int n)
 
 void myPainter::measCalculate()
 {
-    //A = (qSqrt(qAbs(this->a.x() - this->b.x())+qAbs(this->a.y() - this->b.y())));
     for(int i = 0; i<8; ++i){
         this->length[i] = qSqrt( (this->len[i][0].x() - this->len[i][1].x()) *
                                  (this->len[i][0].x() - this->len[i][1].x()) +
@@ -46,6 +45,10 @@ void myPainter::measCalculate()
             this->length[i] = this->scale * tmp / this->length[0];
         }
     }
+    if(this->scale > 0) this->length[0] = this->scale;
+
+    //measure angles
+    this->angle[0] = this->measure_angle(this->avergePointGen(this->len[1][1],this->len[2][0]), this->len[1][0], this->len[2][1]);
 }
 
 void myPainter::mouseMoveEvent(QMouseEvent *mouse_event)
@@ -184,6 +187,39 @@ void myPainter::paintCustom2Event(QPaintEvent *e)
     }
 }
 
+QPoint myPainter::avergePointGen(QPoint a, QPoint b)
+{
+    QPoint result;
+    result.setX((int)((a.x()+b.x())/2));
+    result.setY((int)((a.y()+b.y())/2));
+
+    return result;
+}
+
+qreal myPainter::measure_angle(QPoint a, QPoint b, QPoint c)
+{
+    qreal result;
+    float AB,AC,BC;
+    // from cosinus theorem
+    // c2 = a2 + b2 - 2ab cos(DIR) , so
+    // DIR = arcos( (a2 + b2 - c2) / 2ab )
+    AB = qSqrt( (a.x() - b.x()) *
+                    (a.x() - b.x()) +
+                    (a.y() - b.y()) *
+                    (a.y() - b.y()) );
+    AC = qSqrt( (a.x() - c.x()) *
+                    (a.x() - c.x()) +
+                    (a.y() - c.y()) *
+                    (a.y() - c.y()) );
+    BC = qSqrt( (c.x() - b.x()) *
+                    (c.x() - b.x()) +
+                    (c.y() - b.y()) *
+                    (c.y() - b.y()) );
+    result = qAcos(((AB*AB)+(AC*AC)-(BC*BC))/(2*AB*AC)) * 180 / 3.1415;
+
+    return result;
+}
+
 //void myPainter::measure_angle()
 //{
 //    /*
@@ -224,6 +260,8 @@ void myPainter::reciveSaveTriger()
     for(int i = 0; i<8;++i){
         out<<"\t"+QString::number(this->length[i])<<endl;
     }
+    out<<"Katy"<<endl;
+    out<<"\t"+QString::number(this->angle[0])<<endl;
     out<<endl;
     fileName.close();
 }

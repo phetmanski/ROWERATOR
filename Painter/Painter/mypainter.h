@@ -44,9 +44,11 @@ private:
     QPoint a,b;
     QPoint len[8][2];
     float length[8];
+    qreal angle[4];
     int measType;
 
-    //void measure_angle();
+    QPoint avergePointGen(QPoint a, QPoint b);
+    qreal measure_angle(QPoint a, QPoint b, QPoint c);
     //void measure_length();
 
 
