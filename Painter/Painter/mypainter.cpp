@@ -48,7 +48,14 @@ void myPainter::measCalculate()
     if(this->scale > 0) this->length[0] = this->scale;
 
     //measure angles
+    //HipAngle
     this->angle[0] = this->measure_angle(this->avergePointGen(this->len[1][1],this->len[2][0]), this->len[1][0], this->len[2][1]);
+    //KneeAngle
+    this->angle[1] = this->measure_angle(this->avergePointGen(this->len[2][1],this->len[3][0]), this->len[2][0], this->len[3][1]);
+    //ElbowAngle
+    this->angle[2] = this->measure_angle(this->avergePointGen(this->len[4][1],this->len[5][0]), this->len[4][0], this->len[5][1]);
+    //CustomAngle
+    this->angle[3] = this->measure_angle(this->avergePointGen(this->len[6][1],this->len[7][0]), this->len[6][0], this->len[7][1]);
 }
 
 void myPainter::mouseMoveEvent(QMouseEvent *mouse_event)
@@ -260,8 +267,11 @@ void myPainter::reciveSaveTriger()
     for(int i = 0; i<8;++i){
         out<<"\t"+QString::number(this->length[i])<<endl;
     }
+    out<<endl,
     out<<"Katy"<<endl;
-    out<<"\t"+QString::number(this->angle[0])<<endl;
+    for(int i=0;i<4;++i){
+        out<<"\t"+QString::number(this->angle[i])<<endl;
+    }
     out<<endl;
     fileName.close();
 }
