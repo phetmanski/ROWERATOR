@@ -38,6 +38,7 @@ protected:
 
 private:
     float scale;
+    QString fileName;
     //bool isScaled;
     bool canDraw;
     bool isImageLoaded;
@@ -51,9 +52,6 @@ private:
 
     QPoint avergePointGen(QPoint a, QPoint b);
     qreal measure_angle(QPoint a, QPoint b, QPoint c);
-    //void measure_length();
-
-
 
 signals:
     void sendMousePosition(QPoint&);
@@ -63,6 +61,7 @@ public slots:
     void reciveMeasType(int);
     //void reciveDebug_for();
     void reciveScale(QString);
+    void reciveFileName(QString);
     void reciveCalcTriger();
     void reset_view();
     void reciveSaveTriger();

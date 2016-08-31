@@ -1,5 +1,7 @@
 #include "mypainter.h"
 
+#define UNUSED(expr) do { (void)(expr); } while (0)
+
 myPainter::myPainter(QWidget *parent) : QLabel(parent)
 {
     this->scale = 0;
@@ -111,6 +113,7 @@ void myPainter::paintEvent(QPaintEvent *e)
 
 void myPainter::paintScaleEvent(QPaintEvent *e)
 {
+    UNUSED(e);
     if (this->isImageLoaded && this->canDraw) {
         this->paintingActive();
         QPainter painter(this);
@@ -123,6 +126,7 @@ void myPainter::paintScaleEvent(QPaintEvent *e)
 }
 void myPainter::paintBodyEvent(QPaintEvent *e)
 {
+    UNUSED(e);
     if (this->isImageLoaded && this->canDraw) {
         this->paintingActive();
         QPainter painter(this);
@@ -134,6 +138,7 @@ void myPainter::paintBodyEvent(QPaintEvent *e)
 }
 void myPainter::paintUperLegEvent(QPaintEvent *e)
 {
+    UNUSED(e);
     if (this->isImageLoaded && this->canDraw) {
         this->paintingActive();
         QPainter painter(this);
@@ -144,7 +149,9 @@ void myPainter::paintUperLegEvent(QPaintEvent *e)
     }
 }
 void myPainter::paintLowerLegEvent(QPaintEvent *e)
-{    if (this->isImageLoaded && this->canDraw) {
+{
+    UNUSED(e);
+    if (this->isImageLoaded && this->canDraw) {
         this->paintingActive();
         QPainter painter(this);
         QPen linepen(Qt::green);
@@ -154,7 +161,9 @@ void myPainter::paintLowerLegEvent(QPaintEvent *e)
     }
 }
 void myPainter::paintUperArmEvent(QPaintEvent *e)
-{    if (this->isImageLoaded && this->canDraw) {
+{
+    UNUSED(e);
+    if (this->isImageLoaded && this->canDraw) {
         this->paintingActive();
         QPainter painter(this);
         QPen linepen(Qt::yellow);
@@ -164,7 +173,9 @@ void myPainter::paintUperArmEvent(QPaintEvent *e)
     }
 }
 void myPainter::paintLowerArmEvent(QPaintEvent *e)
-{    if (this->isImageLoaded && this->canDraw) {
+{
+    UNUSED(e);
+    if (this->isImageLoaded && this->canDraw) {
         this->paintingActive();
         QPainter painter(this);
         QPen linepen(Qt::yellow);
@@ -174,7 +185,9 @@ void myPainter::paintLowerArmEvent(QPaintEvent *e)
     }
 }
 void myPainter::paintCustom1Event(QPaintEvent *e)
-{    if (this->isImageLoaded && this->canDraw) {
+{
+    UNUSED(e);
+    if (this->isImageLoaded && this->canDraw) {
         this->paintingActive();
         QPainter painter(this);
         QPen linepen(Qt::black);
@@ -184,7 +197,9 @@ void myPainter::paintCustom1Event(QPaintEvent *e)
     }
 }
 void myPainter::paintCustom2Event(QPaintEvent *e)
-{    if (this->isImageLoaded && this->canDraw) {
+{
+    UNUSED(e);
+    if (this->isImageLoaded && this->canDraw) {
         this->paintingActive();
         QPainter painter(this);
         QPen linepen(Qt::black);
@@ -227,25 +242,6 @@ qreal myPainter::measure_angle(QPoint a, QPoint b, QPoint c)
     return result;
 }
 
-//void myPainter::measure_angle()
-//{
-//    /*
-//    float A,B,C,P;
-//    A = (qSqrt(qAbs(this->a.x() - this->b.x())+qAbs(this->a.y() - this->b.y())));
-//    B = (qSqrt(qAbs(this->c.x() - this->b.x())+qAbs(this->c.y() - this->b.y())));
-//    C = (qSqrt(qAbs(this->a.x() - this->c.x())+qAbs(this->a.y() - this->c.y())));
-
-//    P = qAcos((C*C-(A*A)-(B*B))/(-2*A*B)) * 180 / 3.1415;
-//    if (P > 90) P = 270 - P;
-//    this->angle = P;
-//    */
-//}
-
-//void myPainter::measure_length()
-//{
-//   // this->length = (qSqrt(qAbs(this->a.x() - this->b.x())+qAbs(this->a.y() - this->b.y())));
-//}
-
 void myPainter::reset_view()
 {
     this->drawFlag[0] = false;
@@ -262,19 +258,12 @@ void myPainter::reciveSaveTriger()
 {
     this->xmlGen.set(this->length,this->angle);
 
-    QFile fileName("test.txt");
+    QString fName = "";
+    fName += this->fileName + ".xml";
+    QFile fileName(fName);
     fileName.open(QIODevice::WriteOnly|QIODevice::Text);
     QTextStream out(&fileName);
-    out<<"Dlugosci"<<endl;
-    for(int i = 0; i<8;++i){
-        out<<"\t"+QString::number(this->length[i])<<endl;
-    }
-    out<<endl,
-    out<<"Katy"<<endl;
-    for(int i=0;i<4;++i){
-        out<<"\t"+QString::number(this->angle[i])<<endl;
-    }
-    out<<endl;
+
     out<<this->xmlGen.generate()<<endl;
     fileName.close();
 }
@@ -293,6 +282,11 @@ void myPainter::reciveMeasType(int index)
 void myPainter::reciveScale(QString s)
 {
     this->scale = s.toDouble();
+}
+
+void myPainter::reciveFileName(QString s)
+{
+    this->fileName = s;
 }
 
 void myPainter::reciveCalcTriger()

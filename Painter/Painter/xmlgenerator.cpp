@@ -7,7 +7,6 @@ XmlGenerator::XmlGenerator()
 
 XmlGenerator::~XmlGenerator()
 {
-
 }
 
 void XmlGenerator::set(float *l, qreal *qr)
@@ -23,36 +22,27 @@ QString XmlGenerator::generate()
 {
     QString result="";
     result += "\
-<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n                                                    \
-<?xml-stylesheet type=\"text/css\" href=\"css.css\"?>\n                                         \
-<Rowerator>\n                                                                                   \
-    <Punkt>                                                                                     \
-        <Temat><p>Tutaj są podane Punkty Rowerzysty w orientacji <span>Y:X</span></p></Temat>   \
-              <Td>Szyja - <span>60:70 </span></Td>                                              \
-              <Td>Łokieć - <span>50:50 </span></Td>                                             \
-              <Td>Ręce - <span>40:30</span> </Td>                                               \
-              <Td>Biodra - <span>40:70 </span></Td>                                             \
-              <Td>Kolano - <span>30:50</span></Td>                                              \
-              <Td>Zakończenie nogi - <span>20:60</span></Td>                                    \
-              <Td>Pięta - <span>18:60</span></Td>                                               \
-              <Td>Palce - <span>15:55</span></Td>                                               \
-                                                                                                \
-    </Punkt>                                                                                    \
-                                                                                                \
-    <Kat>                                                                                       \
-          <Temat><p>Tutaj są podane Kąty odpowiadające punktom powyżej w ujęciu  <span>procentowym</span></p></Temat>\
-              <Td>Łokciowy - <span>5%</span></Td>                                               \
-              <Td>Pachowy - <span>30%</span></Td>                                               \
-              <Td>Biodrowy - <span>40%</span></Td>                                              \
-              <Td>Kolanowy - <span>30%</span></Td>                                              \
-              <Td>Stopowy - <span>15%</span></Td>                                               \
-    </Kat>                                                                                      \
-                                                                                                \
-</Rowerator>";
+<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
+<?xml-stylesheet type=\"text/css\" href=\"css.css\"?>\n\
+<Rowerator>\n\
+\t<Dlugosc>\n\
+\t\t<Temat><p>Lista Dlugości</p></Temat>\n\
+\t\t\t<Td>Korpus - <span>"+ QString::number(this->length[1]) +"</span></Td>\n\
+\t\t\t<Td>Udo - <span>"+ QString::number(this->length[2]) +"</span> </Td>\n\
+\t\t\t<Td>Piszczel - <span>"+ QString::number(this->length[3]) +"</span></Td>\n\
+\t\t\t<Td>Ramię - <span>"+ QString::number(this->length[4]) +"</span></Td>\n\
+\t\t\t<Td>Przedramię - <span>"+ QString::number(this->length[5]) +"</span></Td>\n\
+\t\t\t<Td>Dł użytkownika 1 - <span>"+ QString::number(this->length[6]) +"</span></Td>\n\
+\t\t\t<Td>Dł użytkownika 2 - <span>"+ QString::number(this->length[7]) +"</span></Td>\n\n\
+\t</Dlugosc>\n\n\
+\t<Kat>\n\
+\t\t<Temat><p>Lista katow</p></Temat>\n\
+\t\t\t<Td>Korpus:Udo - <span>"+ QString::number(this->angle[0]) +"</span></Td>\n\
+\t\t\t<Td>Udo>Piszczel - <span>"+ QString::number(this->angle[1]) +"</span></Td>\n\
+\t\t\t<Td>Ramię:Przedramię - <span>"+ QString::number(this->angle[2]) +"</span></Td>\n\
+\t\t\t<Td>Dł uż 1:Dł uż 2 - <span>"+ QString::number(this->angle[3]) +"</span></Td>\n\
+\t</Kat>\n\n\
+</Rowerator>\n";
 
-    for(int i = 0; i<8;++i){
-        result += QString::number(this->length[i]);
-        result += "\n";
-    }
     return result;
 }

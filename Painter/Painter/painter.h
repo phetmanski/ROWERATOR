@@ -23,6 +23,7 @@ signals:
     void sendMeasureType(int);
     //void sendDebug_for();
     void sendScale(QString);
+    void sendFileName(QString);
     void sendCalcTriger();
     void sendResetSig();
     void sendSaveTriger();
@@ -43,10 +44,10 @@ private slots:
 
 private:
     Ui::Painter *ui;
-    QString fileName;
-    QString measType;
-    QString measName;
-    float measVal;
+    //QString fileName;
+    //QString measType;
+    //QString measName;
+    //float measVal;
 };
 
 #endif // PAINTER_H
