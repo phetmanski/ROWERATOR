@@ -105,8 +105,4 @@ void Player::on_actionForward_triggered()
     }
 }
 
-void Player::on_spinBox_valueChanged(int arg1)
-{
-
-
-}
+void Player::on_spinBox_valueChanged(int arg1){}

@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-04-13T19:51:06
+# Project created by QtCreator 2016-09-01T17:43:27
 #
 #-------------------------------------------------
 
@@ -14,15 +14,26 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    player.cpp
+    mypainter.cpp \
+    painter.cpp \
+    player.cpp \
+    xmlgenerator.cpp
 
 HEADERS  += mainwindow.h \
-    player.h
+    mypainter.h \
+    painter.h \
+    player.h \
+    xmlgenerator.h
 
 FORMS    += mainwindow.ui \
+    painter.ui \
     player.ui
 
-RESOURCES += \
-    resources.qrc
-
-DISTFILES +=
+DISTFILES += \
+    icons/aparat.jpg \
+    icons/file up.png \
+    icons/next 2.png \
+    icons/pause.png \
+    icons/play.png \
+    icons/prev 2.png \
+    icons/stop.png
