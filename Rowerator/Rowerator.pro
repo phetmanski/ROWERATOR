@@ -29,11 +29,7 @@ FORMS    += mainwindow.ui \
     painter.ui \
     player.ui
 
-DISTFILES += \
-    icons/aparat.jpg \
-    icons/file up.png \
-    icons/next 2.png \
-    icons/pause.png \
-    icons/play.png \
-    icons/prev 2.png \
-    icons/stop.png
+RESOURCES += \
+    resources.qrc
+
+
