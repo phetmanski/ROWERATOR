@@ -1,0 +1,16 @@
+Instrukcja obslugi modulu rysowania / generowania raportu:
+
+Z okna startowego wybieramy Load Image from file
+Pojawia nam sie nowe okno w ktorym mamy:
+Na gorze okna zakladke file
+Na dole z prawej strony combo box ktory ustawiamy na tryb odleglosci ktory aktualnie chcemy zmierzyc
+
+Na dole z lewej strony mamy okno Scale w ktorym wpisujemy znana nam odleglosc ktora zaznaczamy na obrazie przy wlaczonym trybie scale
+
+wybierajac kolejne tryby rysowania pamietamy o kolejnosci zaznaczania punktow, tzn ze jesli wybieramy odlegosc od barku do nadgarstka najpierw zaznaczamy bark pozniej nadgarstek ( nie odwrotnie)
+
+Po nakresleniu odpowiednich odleglosci klikamy przycisk calculate ktory nam przekalkuluje odlegosci wzgledem skali
+W oknie File name wpisujemy nazwe pod jaka chcielibysmy miec raport (wpisujemy sama nazwe bez rozszerzen)
+
+Nastepnie naciskamy klawisz Save ktory wygeneruje nam raport w katalogu ../ w ktorym znajduje sie plik wykonywalny programu (.exe)
+
