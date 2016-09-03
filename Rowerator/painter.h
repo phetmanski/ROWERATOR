@@ -23,7 +23,7 @@ signals:
     void sendMeasureType(int);
     //void sendDebug_for();
     void sendScale(QString);
-    void sendFileName(QString);
+    //void sendFileName(QString);
     void sendCalcTriger();
     void sendResetSig();
     void sendSaveTriger();

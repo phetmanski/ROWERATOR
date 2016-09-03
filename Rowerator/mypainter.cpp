@@ -258,8 +258,12 @@ void myPainter::reciveSaveTriger()
 {
     this->xmlGen.set(this->length,this->angle);
 
-    QString fName = "";
-    fName += this->fileName + ".xml";
+    QString fName = QFileDialog::getSaveFileName(this, "Save as", "Choose a filename", "XML(*.xml)");
+    QString saveExtension = "XML";
+    int pos = fName.lastIndexOf('.');
+    if (pos >= 0)
+        saveExtension = fName.mid(pos + 1);
+
     QFile fileName(fName);
     fileName.open(QIODevice::WriteOnly|QIODevice::Text);
     QTextStream out(&fileName);
@@ -277,11 +281,6 @@ void myPainter::reciveMeasType(int index)
 void myPainter::reciveScale(QString s)
 {
     this->scale = s.toDouble();
-}
-
-void myPainter::reciveFileName(QString s)
-{
-    this->fileName = s;
 }
 
 void myPainter::reciveCalcTriger()

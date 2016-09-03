@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QtGui>
 #include <QtCore>
+#include <QFileDialog>
 #include <qmath.h>
 #include "xmlgenerator.h"
 
@@ -38,7 +39,7 @@ protected:
 
 private:
     float scale;
-    QString fileName;
+    //QString fileName;
     //bool isScaled;
     bool canDraw;
     bool isImageLoaded;
@@ -61,7 +62,7 @@ public slots:
     void reciveMeasType(int);
     //void reciveDebug_for();
     void reciveScale(QString);
-    void reciveFileName(QString);
+    //void reciveFileName(QString);
     void reciveCalcTriger();
     void reset_view();
     void reciveSaveTriger();

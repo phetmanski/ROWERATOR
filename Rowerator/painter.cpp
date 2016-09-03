@@ -10,7 +10,7 @@ Painter::Painter(QWidget *parent) :
     connect(this,SIGNAL(sendMeasureType(int)),ui->display,SLOT(reciveMeasType(int)));
     //connect(this,SIGNAL(sendDebug_for()),ui->display,SLOT(reciveDebug_for()));
     connect(this,SIGNAL(sendScale(QString)),ui->display,SLOT(reciveScale(QString)));
-    connect(this,SIGNAL(sendFileName(QString)),ui->display,SLOT(reciveFileName(QString)));
+    //connect(this,SIGNAL(sendFileName(QString)),ui->display,SLOT(reciveFileName(QString)));
     //connect(ui->display,SIGNAL(sendDebugMsg(float,float)),this,SLOT(show_debug(float,float)));
     connect(this,SIGNAL(sendCalcTriger()),ui->display,SLOT(reciveCalcTriger()));
     connect(this,SIGNAL(sendResetSig()),ui->display,SLOT(reset_view()));
@@ -55,8 +55,8 @@ void Painter::on_calcButton_clicked()
 
 void Painter::on_genericButt_clicked()
 {
-    if(ui->fileNameEdit->text() != ""){
-        emit this->sendFileName(ui->fileNameEdit->text());
-        emit this->sendSaveTriger();
-    }
+
+    //emit this->sendFileName(ui->fileNameEdit->text());
+    emit this->sendSaveTriger();
+
 }
