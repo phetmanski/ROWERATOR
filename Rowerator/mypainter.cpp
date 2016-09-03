@@ -274,11 +274,6 @@ void myPainter::reciveMeasType(int index)
     this->update();
 }
 
-//void myPainter::reciveDebug_for()
-//{
-//   // emit this->sendDebugMsg(this->length,this->angle);
-//}
-
 void myPainter::reciveScale(QString s)
 {
     this->scale = s.toDouble();

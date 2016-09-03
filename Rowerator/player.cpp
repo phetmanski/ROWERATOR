@@ -71,15 +71,19 @@ void Player::on_actionStop_triggered()
 
 void Player::on_actionScreenshot_triggered()
 {
+
     play->pause();
+    QPixmap p = QPixmap::grabWindow(vw->winId());
     QString saveFilename = QFileDialog::getSaveFileName(this, "Save as", "Choose a filename", "PNG(*.png);; BMP(*.bmp);; JPEG(*.jpg *.jpeg)");
     QString saveExtension = "PNG";
     int pos = saveFilename.lastIndexOf('.');
     if (pos >= 0)
         saveExtension = saveFilename.mid(pos + 1);
-    play->play();
-    play->pause();
-    if(!QPixmap::grabWindow(vw->winId()).save(saveFilename))
+    //QString saveFilename = "testscreen.png";
+    //play->play();
+
+    //play->pause();
+    if(!p.save(saveFilename))
     {
         QMessageBox::warning(this, "File could not be saved", "ok", QMessageBox::Ok);
     }

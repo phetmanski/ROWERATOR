@@ -40,16 +40,7 @@ void Painter::on_fileOpen_triggered()
         }
     }
 }
-void Painter::on_button_scale_clicked()
-{
-    //emit this->sendScale(ui->scaleLable->text());
-    //ui->debug->setText("scale: "+ui->scaleLable->text());
-}
 
-//void Painter::show_debug(float a, float b)
-//{
-//    ui->debug->setText("val: "+QString::number(this->measVal));
-//}
 
 void Painter::on_comboBox_currentIndexChanged(int index)
 {

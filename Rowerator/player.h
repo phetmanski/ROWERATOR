@@ -12,6 +12,7 @@
 #include <QImage>
 #include <QPixmap>
 #include <QVideoSurfaceFormat>
+#include <QString>
 
 namespace Ui {
 class Player;

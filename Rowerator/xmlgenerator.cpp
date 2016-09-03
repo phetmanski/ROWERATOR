@@ -38,7 +38,7 @@ QString XmlGenerator::generate()
 \t<Kat>\n\
 \t\t<Temat><p>Lista katow</p></Temat>\n\
 \t\t\t<Td>Korpus:Udo - <span>"+ QString::number(this->angle[0]) +"</span></Td>\n\
-\t\t\t<Td>Udo>Piszczel - <span>"+ QString::number(this->angle[1]) +"</span></Td>\n\
+\t\t\t<Td>Udo:Piszczel - <span>"+ QString::number(this->angle[1]) +"</span></Td>\n\
 \t\t\t<Td>Ramię:Przedramię - <span>"+ QString::number(this->angle[2]) +"</span></Td>\n\
 \t\t\t<Td>Dł uż 1:Dł uż 2 - <span>"+ QString::number(this->angle[3]) +"</span></Td>\n\
 \t</Kat>\n\n\

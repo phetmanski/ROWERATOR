@@ -34,8 +34,6 @@ signals:
 private slots:
     void on_fileOpen_triggered();
 
-    void on_button_scale_clicked();
-
     void on_comboBox_currentIndexChanged(int index);
 
     void on_calcButton_clicked();
@@ -44,10 +42,6 @@ private slots:
 
 private:
     Ui::Painter *ui;
-    //QString fileName;
-    //QString measType;
-    //QString measName;
-    //float measVal;
 };
 
 #endif // PAINTER_H

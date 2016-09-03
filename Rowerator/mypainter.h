@@ -55,7 +55,7 @@ private:
 
 signals:
     void sendMousePosition(QPoint&);
-    //void sendDebugMsg(float,float);
+    //void sendDebugMsg(QString a);
 
 public slots:
     void reciveMeasType(int);
